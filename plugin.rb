@@ -1,8 +1,3 @@
-# name: emoji
-# about: emoji support for Discourse
-# version: 0.1
-# authors: Sam Saffron, Robin Ward
-
 register_asset('javascripts/skye.js.erb', :server_side)
 register_asset('stylesheets/skye.css')
 register_asset('javascripts/jquery.qtip.min.js')
