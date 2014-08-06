@@ -1,3 +1,3 @@
-# Discourse Emoji Gem
+# Discourse Skye Gem
 
-Adds Emoji support to discourse. Thanks to the gemoji gem for the assets.
+Adds Skye Items support to discourse.
