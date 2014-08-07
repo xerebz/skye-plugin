@@ -1,5 +1,5 @@
-body img.skye {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+.skye-item {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
 }
