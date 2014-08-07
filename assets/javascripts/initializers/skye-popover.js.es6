@@ -8,7 +8,7 @@ export default {
         content: {
           text: function(event, api) {
               $.ajax({
-                  url: 'http://qtip2.com/demos/data/owl' // Use href attribute as URL
+                  url: 'http://qtip2.com/demos/data/owl' // Use href attribute as URL xerebz.com/avatar/
               })
               .then(function(content) {
                   // Set the tooltip content upon successful retrieval
@@ -18,12 +18,29 @@ export default {
                   api.set('content.text', status + ': ' + error);
               });
   
-              return 'Loading...'; // Set some initial text
+              return '...'; // Set some initial text
           },
           button: true
         },
-        show: 'click',
-        hide: 'click unfocus'
+        //reposition to stay visible
+        position: {
+          my: 'middle left',
+          at: 'middle right',
+          viewport: $(window),
+          adjust: {
+            method: 'shift'
+          },
+          effect: true
+        },
+        //show on click
+        show: {
+          event: 'click'
+        },
+        //hide on click or click off
+        hide: 'click unfocus',
+        style: {
+            classes: 'qtip-light qtip-shadow'
+        }
       });
     });
   }
