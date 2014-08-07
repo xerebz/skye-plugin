@@ -7,7 +7,6 @@ register_asset('javascripts/skye.js.erb', :server_side)
 register_asset('stylesheets/skye.css')
 register_asset('javascripts/jquery.qtip.min.js')
 register_asset('stylesheets/jquery.qtip.min.css')
-register_asset('javascripts/popover.js')
 
 after_initialize do
 

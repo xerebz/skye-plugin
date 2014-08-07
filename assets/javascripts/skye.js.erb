@@ -2,18 +2,18 @@
 
   var skye = <%= Dir.glob(File.expand_path("../../../public/images/*.png", __FILE__)).map{|f| File.basename(f).split(".")[0]}.inspect %>;
 
-  function imageFor(code) {
-    if (skye.indexOf(code) !== -1) {
-      var url = Discourse.getURL('/plugins/skye/images/' + code + '.png');
-      return ['img', {href: url, title: ':' + code + ':', 'class': 'skye', alt: code}];
+  Discourse.Dialect.inlineBetween({
+    start: '^',
+    stop: '^',
+    emitter: function(contents) {
+      var url = Discourse.getURL('/plugins/skye-plugin/images/thumbnails/' + contents + '.png');
+      return ['img', {href: url, 'class': 'skye-item'}];
     }
-  }
-
-  Discourse.Dialect.registerInline('^', function(text, match, prev) {
   });
 
   // TODO: Make this a proper ES6 import
   var ComposerView = (Discourse && Discourse.ComposerView) || (typeof require !== "undefined" && require('discourse/views/composer').default);
+  
   if (ComposerView) {
     ComposerView.on("initWmdEditor", function(event){
 
@@ -66,5 +66,5 @@
     });
   }
 
-  Discourse.Markdown.whiteListTag('img', 'class', 'skye');
+  Discourse.Markdown.whiteListTag('img', 'class', 'skye-item');
 }).call(this);
